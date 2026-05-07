@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int A[10][10];
+
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++)
+            cin >> A[i][j];
+
+    int k;
+    cin >> k;
+
+    while(k--) {
+        int tam;
+        cin >> tam; 
+
+        int caminho[50];
+
+        for(int i = 0; i < tam; i++)
+            cin >> caminho[i];
+
+        int custo = 0;
+
+        for(int i = 0; i < tam - 1; i++) {
+            custo += A[caminho[i]][caminho[i + 1]];
+        }
+
+        cout << custo << endl;
+    }
+
+    return 0;
+}
