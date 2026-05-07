@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A[5][7];
+    bool existePontoSela = false;
+
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 7; j++) {
+            cout << "Matriz[" << i << "][" << j << "]: ";
+            cin >> A[i][j];
+        }
+    }
+
+
+    for (int i = 0; i < 5; i++) {
+        // Passo A: Achar o menor da linha 'i'
+        int menorLinha = A[i][0];
+        int colunaDoMenor = 0;
+
+        for (int j = 1; j < 7; j++) {
+            if (A[i][j] < menorLinha) {
+                menorLinha = A[i][j];
+                colunaDoMenor = j;
+            }
+        }
+
+      
+        bool ehMaiorColuna = true;
+        for (int k = 0; k < 5; k++) {
+            if (A[k][colunaDoMenor] > menorLinha) {
+                ehMaiorColuna = false;
+                break;
+            }
+        }
+
+  
+        if (ehMaiorColuna) {
+            cout << "\nPonto de sela encontrado!" << endl;
+            cout << "Valor: " << menorLinha << endl;
+            cout << "Localizacao: Linha " << i << ", Coluna " << colunaDoMenor << endl;
+            existePontoSela = true;
+        }
+    }
+
+    if (!existePontoSela) {
+        cout << "\nA matriz nao possui ponto de sela." << endl;
+    }
+
+    return 0;
+}
