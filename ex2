@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string> // Necessário para trabalhar com nomes
+
+using namespace std;
+
+int main() {
+    string nomes[15];
+    float notas[15][5];
+    float somaClasse = 0;
+    // 1. Entrada de Dados
+    for (int i = 0; i < 15; i++) {
+        cout << "Digite o nome do aluno " << i + 1 << ": ";
+        cin >> nomes[i];
+
+        for (int j = 0; j < 5; j++) {
+            cout << "Digite a nota da prova " << j + 1 << ": ";
+            cin >> notas[i][j];
+        }
+        cout << "-----------------------" << endl;
+    }
+;
+
+    for (int i = 0; i < 15; i++) {
+        float somaAluno = 0;
+
+        /
+        for (int j = 0; j < 5; j++) {
+            somaAluno += notas[i][j];
+        }
+
+        float mediaAluno = somaAluno / 5;
+        somaClasse += mediaAluno; // Guarda a média desse aluno para a média geral
+
+        cout << "Aluno: " << nomes[i] << " | Media: " << mediaAluno << " | Situacao: ";
+
+     
+        if (mediaAluno >= 7.0) {
+            cout << "APROVADO" << endl;
+        } else if (mediaAluno >= 4.0) {
+            cout << "EXAME" << endl;
+        } else {
+            cout << "REPROVADO" << endl;
+        }
+    }
+
+    // 3. Média da Classe
+    float mediaClasse = somaClasse / 15;
+    cout << "\nMedia Geral da Classe: " << mediaClasse << endl;
+
+    return 0;
+}
