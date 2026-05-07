@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+// Função que realiza a troca das diagonais
+void inverteDiagonal(float mat[5][5]) {
+    for (int i = 0; i < 5; i++) {
+        // Diagonal Principal: mat[i][i]
+        // Diagonal Secundária: mat[i][4 - i]
+        
+        float auxiliar = mat[i][i];      
+        mat[i][i] = mat[i][4 - i];       
+        mat[i][4 - i] = auxiliar;       
+    }
+}
+
+int main() {
+    float matriz[5][5];
+
+    // Preenchendo a matriz para teste
+    cout << "Digite os elementos da matriz 5x5:" << endl;
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 4; j++) { 
+             
+        }
+    }
+    
+    
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            matriz[i][j] = (i * 10) + j; // Apenas valores para teste
+        }
+    }
+
+    cout << "\n--- Matriz Original ---" << endl;
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) cout << matriz[i][j] << "\t";
+        cout << endl;
+    }
+
+    // CHAMADA DA FUNÇÃO
+    inverteDiagonal(matriz);
+
+    cout << "\n--- Matriz com Diagonais Invertidas ---" << endl;
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) cout << matriz[i][j] << "\t";
+        cout << endl;
+    }
+
+    return 0;
+}
